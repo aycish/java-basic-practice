@@ -2,5 +2,5 @@ package basic.lambda;
 
 @FunctionalInterface
 public interface Add {
-	int add(int x, int y);
+	int add(int first, int second);
 }
