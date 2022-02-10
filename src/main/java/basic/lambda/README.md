@@ -63,3 +63,38 @@ str-> return str.length(); // 오류 발생
 (x, y) -> x * y;
 str -> str.length;
 ```
+
+
+## 함수형 인터페이스와 람다식
+
+---
+
+### [함수형 인터페이스 선언하기]
+
+- 람다식을 선언하기 위한 인터페이스
+- 익명 함수와 매개 변수만으로 구현되므로 인터페이스는 단 하나의 메서드만을 선언해야함
+- @FunctionalInterface annotation 사용
+    - 함수형 인터페이스라는 의미로, 단 하나의 메서드만 정의할 수 있다.
+
+
+**어노테이션 사용 예시**
+
+```java
+@FunctionalInterface
+public interface Add {
+		public int add(int x, int y);
+		// public int sub(int x, int y); 에러 발생
+}
+```
+
+**호출 예시**
+
+```java
+public class TestMyNumber {
+
+		public static void main(String[] args) {
+				MyNumber add= (x,y) -> x + y;
+				System.out.println(add.add(x,y)); 
+		}
+}
+```
