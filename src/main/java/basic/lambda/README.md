@@ -54,7 +54,7 @@ str-> System.out.println(str);
 - 실행문이 한 문장이라도 return문이 존재하면 중괄호를 생략할 수 없음
 
 ```java
-str-> return str.length(); // 오류
+str-> return str.length(); // 오류 발생
 ```
 
 - 실행문이 한 문장의 반환문인 경우엔 return과 중괄호를 모두 생략할 수 있음
