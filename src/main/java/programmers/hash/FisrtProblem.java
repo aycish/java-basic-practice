@@ -21,7 +21,7 @@ public class FisrtProblem {
 			{"stanko", "ana", "mislav"}
 		};
 
-		for (int i = 0 ; i < 3; i++) {
+		for (int i = 0; i < 3; i++) {
 			System.out.println((solve(part[i], com[i])));
 		}
 	}
