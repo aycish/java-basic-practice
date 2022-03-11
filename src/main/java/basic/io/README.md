@@ -160,3 +160,25 @@ public class FileWriterTest {
     }
 }
 ```
+
+---
+
+## 보조 스트림 클래스
+
+---
+
+### [보조 스트림]
+
+#### 정의
+
+- 보조 기능을 제공하는 스트림
+- FilterInputStream과 FilterOutputStream이 보조 스트림의 상위 클래스들
+- 생성자의 매개변수로 또 다른 스트림을 가짐
+- Decorator Pattern으로 구현된다.
+- 상위 클래스 생성자
+
+|생성자|설명|
+|-----|-----|
+|protected FileterInputStream(InputStream in)| 생성자의 매개변수로 InputStream을 주어야 함 | 
+|protected FilterOutputStream(OutputStream out)| 생성자의 매개변수로 OutputStream을 주어야 함|
+
