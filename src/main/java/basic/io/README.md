@@ -2,9 +2,7 @@
 
 ---
 
-### 입출력 스트림
-
----
+### [입출력 스트림]
 
 #### 정의
 
@@ -52,9 +50,8 @@
 
 ---
 
-### System 클래스의 표준 입출력 멤버
+### [System 클래스의 표준 입출력 멤버]
 
----
 
 ```java
 public class System {
@@ -67,3 +64,99 @@ public class System {
 - System.out : 표준 출력 스트림 (C의 stdout 느낌)
 - System.in  : 표준 입력 스트림 (C의 stdin 느낌)
 - System.err : 표준 에러 출력 스트림 (C의 stderr 느낌)
+
+---
+
+## 문자 단위 입출력 스트림
+
+---
+
+### [Reader]
+
+#### 정의
+
+- 문자 단위 입력 스트림 최상위 추상 클래스
+- 많은 추상 메서드가 선언되어 있고, 하위 스트림이 이를 구현
+- 주요 하위 클래스
+
+|클래스|설명|
+|-----|-----|
+|FileReader| 파일에서 문자 단위로 읽는 스트림 클래스|
+|InputStreamReader| 바이트 단위로 읽은 자료를 문자로 변환해주는 보조 스트림 클래스|
+|BufferedReader| 문자로 읽을 때 배열을 제공하여 한꺼번에 읽을 수 있는 기능을 제공하는 보조 스트림|
+
+- 주요 메서드
+
+|메서드|설명|
+|-----|-----|
+|int read()| 파일로부터 한 문자를 읽고 반환|
+|int read(char[] buf)| 파일로부터 buf 배열에 읽어 넣어준다.|
+|int read(char[] buf, int off, int len)|파일로부터 읽어와 배열의 off 위치로부터 len 개수만큼 문자를 읽는다.|
+|void close()| 입력 스트림과 연결된 대상 리소스를 닫는다.|
+
+*FileReader 사용 예시*
+```java
+public class FileReaderTest {
+	
+	public static void main(String[] args) {
+		try(FileReader fr = new FileReader("reader.txt")) {
+			int i;
+			while ((i = fr.read()) != -1) {
+				System.out.print((char)i);
+            }
+			
+        } catch (IOException e) {
+			e.printStackTrace();
+        }
+    }
+}
+```
+
+### [Writer]
+
+#### 정의
+
+- 문자 단위 출력 스트림 최상위 추상 클래스
+- Reader와 마찬가지로 많은 추상 메서드들이 선언되어 있고, 이를 하위 클래스에서 상속받아 구현
+- 주요 하위 클래스
+
+|클래스|설명|
+|-----|-----|
+|FileWriter| 파일에서 문자 단위로 출력하는 스트림 클래스|
+|OutputStreamWriter| 바이트 단위로 자료를 문자로 변환해 출력하는 클래스|
+|BufferedWriter| 문자로 쓸 때 배열을 제공하여 한꺼번에 출력할 수 있는 기능을 제공하는 보조 스트림|
+
+- 주요 메서드
+
+|메서드|설명|
+|-----|-----|
+|int write(int c)| 한 문자를 파일에 출력|
+|int write(char[] buf)| 문자 배열 buf의 내용을 출력|
+|int write(char[] buf, int off, int len)| buf + off 부터 len 만큼 출력|
+|int write(String str)| 문자열 str 출력|
+|int write(String str, int off, int len)| str의 off번째 문자부터 len만큼 출력|
+|int flush() | 출력하기 전, 출력 버퍼의 내용을 모두 출력|
+|void close()| 스트림과 연결된 리소스를 닫는다. 출력 버퍼 또한 플러시됨|
+
+*FileWriter 예시*
+- 파일에 문자 쓰기
+```java
+public class FileWriterTest {
+	public static void main(String[] args) {
+		
+		try(FileWriter fw = new FileWriter("writer.txt")) {
+			fw.write('A');
+			char[] buf = {'B', 'C', 'D', 'E'};
+			
+			fw.write(buf);
+			fw.write("안녕하세요.");
+			fw.write(buf,1,2);
+			fw.write("65");
+        } catch(IOException e) {
+			e.printStackTrace();
+        }
+		
+		System.out.println("출력이 완료되었습니다.");
+    }
+}
+```
