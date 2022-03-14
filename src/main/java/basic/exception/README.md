@@ -63,17 +63,17 @@
 
 ```java
     try{
-	fp=new FileInputStream("test.text");
-	}catch(FileNotFoundException e){
-	System.out.println(e.toString());
-	}finally{
-	if(fp!=null){
-	try{
-	fp.close();
-	}catch(IOException e){
-	e.printStackTrace();
-	}
-	}
+	    fp=new FileInputStream("test.text");
+	} catch(FileNotFoundException e) {
+	    System.out.println(e.toString());
+	} finally {
+	    if (fp!=null) {
+	        try{
+	            fp.close();
+	        } catch(IOException e) {
+	            e.printStackTrace();
+	        }
+	    }
 	/* 항상 수행되는 블럭 */
 	}
 ```
@@ -89,12 +89,12 @@
 **사용 예시**
 
 ```java
-        try(FileInputStream fileInputStream2=new FileInputStream("test.txt")){
-	System.out.println("Do something ... ");
-	}catch(FileNotFoundException e){
-	e.printStackTrace();
-	}catch(IOException e){
-	e.printStackTrace();
+        try(FileInputStream fileInputStream2=new FileInputStream("test.txt")) {
+	    System.out.println("Do something ... ");
+	} catch(FileNotFoundException e) {
+	    e.printStackTrace();
+	} catch(IOException e) {
+	    e.printStackTrace();
 	}
 ```
 
@@ -122,12 +122,12 @@ public static void main(String[]args){
 	ThrowsException test=new ThrowsException();
 
 	try{
-	test.loadClass("test.text","testClass");
-	}catch(ClassNotFoundException e){
-	System.out.println("Class Not found exception ... !");
-	}catch(FileNotFoundException e){
-	System.out.println("File Not found exception ... !");
-	}... // 혹은 Multi exception 처리를 사용해도 된다.
+	    test.loadClass("test.text","testClass");
+	} catch(ClassNotFoundException e) {
+	    System.out.println("Class Not found exception ... !");
+	} catch(FileNotFoundException e) {
+	    System.out.println("File Not found exception ... !");
+	} ... // 혹은 Multi exception 처리를 사용해도 된다.
 	}
 ```
 

@@ -174,11 +174,57 @@ public class FileWriterTest {
 - 보조 기능을 제공하는 스트림
 - FilterInputStream과 FilterOutputStream이 보조 스트림의 상위 클래스들
 - 생성자의 매개변수로 또 다른 스트림을 가짐
+    - 매개변수로 준 스트림의 기능을 호출하고, +@로 본인들의 보조적인 기능을 수행하는 느낌
 - Decorator Pattern으로 구현된다.
+    - 상속을 이용하여 구현할 수 있지만, 제약조건이 많고, 구조가 복잡해지기 때문에 데코레이터 패턴을 사용한다.
 - 상위 클래스 생성자
 
 |생성자|설명|
 |-----|-----|
 |protected FileterInputStream(InputStream in)| 생성자의 매개변수로 InputStream을 주어야 함 | 
 |protected FilterOutputStream(OutputStream out)| 생성자의 매개변수로 OutputStream을 주어야 함|
+
+#### 자주 사용하는 보조 스트림
+
+- InputStreamReader와 outputStreamWriter
+  - 바이트 단위로 읽거나 쓰는 자료를 문자로 변환해준다.
+- BufferedInputStream과 BufferedOutputStream
+  - 약 8k의 배열이 제공되어 입출력이 빠르게 수행될 수 있도록 도와준다.
+- DataInputStream과 DataOutputStream
+  - 자료가 메모리에 저장된 상태 그대로 읽거나 쓰는 스트림
+
+
+---
+
+## 직렬화
+
+---
+
+### [Serialization 이란?]
+
+#### 정의
+
+- 인스턴스의 상태를 그대로 파일로 저장하거나, 네트워크로 전송(Serialization)하는 것
+- 자바에서는 보조 스트림을 활용하여 직렬화를 제공함
+
+#### 종류
+
+|생성자|설명|
+|----|----|
+|ObjectInputStream(InputStream in) | InputStream을 생성자의 매개변수로 받아 ObjectInputStream을 생성|
+|ObjectOutputStream(OutputStream out) | OutputStream을 생성자의 매개변수로 받아 ObjectOutputStream을 생성|
+
+### [Serializable 인터페이스]
+
+- 직렬화는 객체의 내용이 외부로 유출되는 것이므로, 프로그래머가 해당 객체에 대한 직렬화 의도를 표시해야함
+- 구현 코드가 없는 *marker interface* -> 찾아보기
+  - 일반적인 인터페이스와 동일하지만, 아무 메소드도 선언하지 않은 인터페이스를 말한다.
+  - 대부분의 경우네느 단순한 타입체크용도로 사용하는 느낌
+- transient : 직렬화하지 않으려는 멤버 변수에 사용함 (Socket등 직렬화 할 수 없는 객체)
+  - transient 사용 시, 해당 멤버의 기본값 (객체라면 null 등)이 세팅됨
+
+### [Externalizable 인터페이스]
+
+- writerExternal()과 readExternal()메서드를 구현해야함
+- 프로그래머가 직접 객체를 읽고 쓰는 코드를 구현할 수 있음
 

@@ -6,7 +6,7 @@ public class AutoCloseTest {
 		// AutoCloseableObject object = new AutoCloseableObject();
 		// try(obj) -> java 9부터 사용 가능
 
-		try (AutoCloseableObject object = new AutoCloseableObject();) {
+		try (AutoCloseableObject object = new AutoCloseableObject()) {
 			System.out.println("Do somthing ... ");
 			throw new Exception();
 		} catch (Exception e) {
