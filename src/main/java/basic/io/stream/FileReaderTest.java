@@ -17,7 +17,7 @@ public class FileReaderTest {
 				System.out.print((char)i);
 			}
 
- 		} catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			System.out.println("File Not Found");
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -26,7 +26,7 @@ public class FileReaderTest {
 		}
 
 		/* 문자열이 오염되지 않고 잘 출력된다.*/
-		try(FileReader fr = new FileReader("reader.txt")) {
+		try (FileReader fr = new FileReader("reader.txt")) {
 			int i;
 			while ((i = fr.read()) != -1) {
 				System.out.print((char)i);

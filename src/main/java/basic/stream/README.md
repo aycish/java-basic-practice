@@ -7,9 +7,11 @@
 ---
 
 #### 정의
+
 - 배열 또는 컬렉션등을 활용하여 모은 데이터에 대한 연산을 수행할 수 있도록 해주는 기능
 
 #### 특징
+
 - 일관성 있는 연산으로 자료의 처리를 쉽고 간단하게 함 (데이터를 추상화를 했다고 표현)
     - 람다식을 통해 일관성 있게 처리 가능
 - 한번 생성하고 사용한 스트림은 재사용 할 수 없음
@@ -20,7 +22,6 @@
     - 필터링, 정렬등은 중간 연산이라함
     - 데이터를 소모하면서 연산을 수행하는것을 최종 연산이라고 한다.
     - 최종 연산 호출 시점에 중간 연산들이 모두 수행되며, 연산 결과를 중간에 얻을 수 없다. (지연 연산)
-
 
 ### 스트림 생성하고 사용하기
 
@@ -41,16 +42,19 @@ Arrays.stream(arr).forEach(n-> System.out.println("num[Stream] = " + n));
     - 조건에 맞는 값을 추출 (필터링)하거나 요소를 변환 (map)할 때 사용
 
 **중간 연산(필터링) 예시**
+
 ```java
 Arrays.stream(arr).filter(n-> n >= 3).forEach(n->System.out.println(n));
 ```
 
 **중간 연산(sorted) 예시**
+
 ```java
 Arrays.stream(arr).sorted().forEach(n->System.out.println(n));
 ```
 
 **중간 연산(map) 예시**
+
 ```java
 customerList.stream().map(c->c.getName()).forEach(s->System.out.println(s));
 ```
@@ -64,14 +68,17 @@ customerList.stream().map(c->c.getName()).forEach(s->System.out.println(s));
 ---
 
 #### 정의
+
 - 미리 제공되는, 정의된 연산이 아닌, 사용자가 직접 구현해서 적용할 수 있음
 
 **형태**
+
 ```java
 T reduce(T identify, BinaryOperator<T> accumulator)
 ```
 
 #### 특징
+
 - 최종 연산으로, 스트림의 요소를 소모하며 연산을 수행한다.
 - 두 번째 요소(BinaryOperator)로 전달되는 람다식에 따라 다양한 기능을 수행할 수 있음
     - 람다식 / BinaryOperator를 구현한 클래스 사용 가능

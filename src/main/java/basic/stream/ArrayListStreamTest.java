@@ -2,7 +2,6 @@ package basic.stream;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class ArrayListStreamTest {
 
@@ -13,15 +12,15 @@ public class ArrayListStreamTest {
 		sList.add("Abo");
 		sList.add("Bordo");
 
-		sList.stream().forEach(s-> System.out.println(s));
+		sList.stream().forEach(s -> System.out.println(s));
 		System.out.println();
 
-		sList.stream().sorted().forEach(s-> System.out.println(s + "\t"));
+		sList.stream().sorted().forEach(s -> System.out.println(s + "\t"));
 		System.out.println();
 
-		sList.stream().map(s->s.length()).forEach(n-> System.out.println(n + "\t"));
+		sList.stream().map(s -> s.length()).forEach(n -> System.out.println(n + "\t"));
 		System.out.println();
 
-		sList.stream().filter(s->s.length() >= 5).forEach(s -> System.out.println(s));
+		sList.stream().filter(s -> s.length() >= 5).forEach(s -> System.out.println(s));
 	}
 }

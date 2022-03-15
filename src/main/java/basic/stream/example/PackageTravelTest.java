@@ -22,7 +22,7 @@ public class PackageTravelTest {
 		System.out.println();
 
 		/* 고객 명단 중, 이름만 출력 */
-		customerList.stream().map(customer -> customer.getName()).forEach(s-> System.out.println(s));
+		customerList.stream().map(customer -> customer.getName()).forEach(s -> System.out.println(s));
 		System.out.println();
 
 		/* 여행 총 경비 출력 */

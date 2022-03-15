@@ -52,7 +52,6 @@
 
 ### [System 클래스의 표준 입출력 멤버]
 
-
 ```java
 public class System {
 	public static PrintStream out;
@@ -95,6 +94,7 @@ public class System {
 |void close()| 입력 스트림과 연결된 대상 리소스를 닫는다.|
 
 *FileReader 사용 예시*
+
 ```java
 public class FileReaderTest {
 	
@@ -139,7 +139,9 @@ public class FileReaderTest {
 |void close()| 스트림과 연결된 리소스를 닫는다. 출력 버퍼 또한 플러시됨|
 
 *FileWriter 예시*
+
 - 파일에 문자 쓰기
+
 ```java
 public class FileWriterTest {
 	public static void main(String[] args) {
@@ -187,12 +189,11 @@ public class FileWriterTest {
 #### 자주 사용하는 보조 스트림
 
 - InputStreamReader와 outputStreamWriter
-  - 바이트 단위로 읽거나 쓰는 자료를 문자로 변환해준다.
+    - 바이트 단위로 읽거나 쓰는 자료를 문자로 변환해준다.
 - BufferedInputStream과 BufferedOutputStream
-  - 약 8k의 배열이 제공되어 입출력이 빠르게 수행될 수 있도록 도와준다.
+    - 약 8k의 배열이 제공되어 입출력이 빠르게 수행될 수 있도록 도와준다.
 - DataInputStream과 DataOutputStream
-  - 자료가 메모리에 저장된 상태 그대로 읽거나 쓰는 스트림
-
+    - 자료가 메모리에 저장된 상태 그대로 읽거나 쓰는 스트림
 
 ---
 
@@ -218,13 +219,32 @@ public class FileWriterTest {
 
 - 직렬화는 객체의 내용이 외부로 유출되는 것이므로, 프로그래머가 해당 객체에 대한 직렬화 의도를 표시해야함
 - 구현 코드가 없는 *marker interface* -> 찾아보기
-  - 일반적인 인터페이스와 동일하지만, 아무 메소드도 선언하지 않은 인터페이스를 말한다.
-  - 대부분의 경우네느 단순한 타입체크용도로 사용하는 느낌
+    - 일반적인 인터페이스와 동일하지만, 아무 메소드도 선언하지 않은 인터페이스를 말한다.
+    - 대부분의 경우네느 단순한 타입체크용도로 사용하는 느낌
 - transient : 직렬화하지 않으려는 멤버 변수에 사용함 (Socket등 직렬화 할 수 없는 객체)
-  - transient 사용 시, 해당 멤버의 기본값 (객체라면 null 등)이 세팅됨
+    - transient 사용 시, 해당 멤버의 기본값 (객체라면 null 등)이 세팅됨
 
 ### [Externalizable 인터페이스]
 
 - writerExternal()과 readExternal()메서드를 구현해야함
 - 프로그래머가 직접 객체를 읽고 쓰는 코드를 구현할 수 있음
 
+---
+
+## 이외의 입출력 클래스들
+
+---
+
+### [File 클래스]
+
+#### 정의 및 특징
+
+- 파일 개념을 추상화한 클래스
+- 파일의 이름, 경로, 리드 온리등의 속성을 알 수 있음
+
+### [RandomAccessFile 클래스]
+
+#### 정의 및 특징
+
+- 입출력 클래스 중, 유일하게 파일에 대한 입력과 출력을 동시에 다룰 수 있는 클래스
+- 파일 포인터가 존재, 커서를 이동시키며 사용 가능

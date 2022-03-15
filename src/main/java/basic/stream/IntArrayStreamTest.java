@@ -14,13 +14,13 @@ public class IntArrayStreamTest {
 		System.out.println();
 
 		/* Stream을 사용해보자 */
-		Arrays.stream(arr).forEach(n-> System.out.println("num[Stream] = " + n));
+		Arrays.stream(arr).forEach(n -> System.out.println("num[Stream] = " + n));
 
 		/* 다양한 메서드들이 제공되므로 확인해보자.
 		 *  중간 연산 예시
 		 */
 		IntStream is = Arrays.stream(arr);
-		is.filter(n->n >= 3).forEach(n-> System.out.println(n));
+		is.filter(n -> n >= 3).forEach(n -> System.out.println(n));
 
 	}
 }

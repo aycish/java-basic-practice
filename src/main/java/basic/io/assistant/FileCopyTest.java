@@ -5,7 +5,6 @@ import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.Buffer;
 
 public class FileCopyTest {
 
@@ -17,7 +16,7 @@ public class FileCopyTest {
 			BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("copy.zip"));
 			millisecond = System.currentTimeMillis();
 
-			int i ;
+			int i;
 			while ((i = bis.read()) != -1) {
 				bos.write(i);
 			}
@@ -29,6 +28,5 @@ public class FileCopyTest {
 
 		System.out.println(millisecond + " ms 소요");
 	}
-
 
 }
