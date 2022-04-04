@@ -16,9 +16,9 @@ public class FileCopyTest {
 			BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("copy.zip"));
 			millisecond = System.currentTimeMillis();
 
-			int i;
-			while ((i = bis.read()) != -1) {
-				bos.write(i);
+			int index;
+			while ((index = bis.read()) != -1) {
+				bos.write(index);
 			}
 
 			millisecond = System.currentTimeMillis() - millisecond;

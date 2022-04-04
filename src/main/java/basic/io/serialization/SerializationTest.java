@@ -5,7 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
+
 
 public class SerializationTest {
 
@@ -14,7 +14,7 @@ public class SerializationTest {
 		Person personKim = new Person("김유신", "상무이사");
 
 		try (FileOutputStream fos = new FileOutputStream("serial.txt");
-			 ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+		     ObjectOutputStream oos = new ObjectOutputStream(fos)) {
 
 			oos.writeObject(personLee);
 			oos.writeObject(personKim);
@@ -25,7 +25,7 @@ public class SerializationTest {
 		}
 
 		try (FileInputStream fis = new FileInputStream("serial.txt");
-			 ObjectInputStream ois = new ObjectInputStream(fis)) {
+	        ObjectInputStream ois = new ObjectInputStream(fis)) {
 
 			Person retPersonLee = (Person)ois.readObject();
 			Person retPersonKim = (Person)ois.readObject();

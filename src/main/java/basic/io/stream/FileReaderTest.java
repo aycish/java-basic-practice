@@ -11,10 +11,10 @@ public class FileReaderTest {
 
 		/* 문자를 핸들링하지 않아 깨져서 나온다. */
 		try (FileInputStream fis = new FileInputStream("reader.txt")) {
-			int i;
+			int index;
 
-			while ((i = fis.read()) != -1) {
-				System.out.print((char)i);
+			while ((index = fis.read()) != -1) {
+				System.out.print((char)index);
 			}
 
 		} catch (FileNotFoundException e) {
@@ -27,9 +27,9 @@ public class FileReaderTest {
 
 		/* 문자열이 오염되지 않고 잘 출력된다.*/
 		try (FileReader fr = new FileReader("reader.txt")) {
-			int i;
-			while ((i = fr.read()) != -1) {
-				System.out.print((char)i);
+			int index;
+			while ((index = fr.read()) != -1) {
+				System.out.print((char)index);
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

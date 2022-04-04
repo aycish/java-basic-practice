@@ -13,7 +13,7 @@ public class ExternalizationTest {
 		ExPerson personKim = new ExPerson("김유신", "상무이사");
 
 		try (FileOutputStream fos = new FileOutputStream("external.txt");
-			 ObjectOutputStream oos = new ObjectOutputStream(fos)) {
+		     ObjectOutputStream oos = new ObjectOutputStream(fos)) {
 
 			oos.writeObject(personLee);
 			oos.writeObject(personKim);
