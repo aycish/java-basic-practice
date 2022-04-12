@@ -75,3 +75,16 @@
     - 객체의 메서드에 synchronized 키워드 사용
     - 현재 이 메서드가 속해있는 개체에 lock 권한을 준다.
     - Synchronized 메서드 안에서 다른 Synchronized 메서드를 호출할 경우, deadlock을 발생시킬 수 있으므로 유의한다.
+
+### wait, notify 메서드를 활용한 동기화
+
+#### [메서드별 동작]
+
+- 리소스 사용을 위해, wait 메서드로 대기 가능
+    - notify가 호출될 때 까지 대기한다.
+- notify를 사용하면 wait하고 있는 Thread 중 무작위로 골라 재시작된다.
+    - Priority나 대기 순서등은 고려되지 않아 starvation이 발생할 수 있다.
+    - 자바에서는 notifyAll 메서드의 사용을 권장한다.
+  
+  
+  
