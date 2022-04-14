@@ -86,5 +86,3 @@
     - Priority나 대기 순서등은 고려되지 않아 starvation이 발생할 수 있다.
     - 자바에서는 notifyAll 메서드의 사용을 권장한다.
   
-  
-  
